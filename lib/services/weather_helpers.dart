@@ -1,25 +1,20 @@
-String getWeatherDescription(int code) {
+String weatherDescription(int code) {
   if (code == 0) return 'Clear sky';
-  if (code == 1) return 'Mainly clear';
-  if (code == 2) return 'Partly cloudy';
-  if (code == 3) return 'Overcast';
-  if (code == 45 || code == 48) return 'Fog';
-  if (code == 51 || code == 53 || code == 55) return 'Drizzle';
-  if (code == 61 || code == 63 || code == 65) return 'Rain';
-  if (code == 71 || code == 73 || code == 75) return 'Snow';
-  if (code == 80 || code == 81 || code == 82) return 'Rain showers';
-  if (code == 95 || code == 96 || code == 99) return 'Thunderstorm';
+  if ([1, 2, 3].contains(code)) return 'Partly cloudy';
+  if ([45, 48].contains(code)) return 'Fog';
+  if ([51, 53, 55].contains(code)) return 'Drizzle';
+  if ([61, 63, 65, 80, 81, 82].contains(code)) return 'Rain';
+  if ([71, 73, 75].contains(code)) return 'Snow';
+  if ([95, 96, 99].contains(code)) return 'Thunderstorm';
   return 'Unknown';
 }
 
-String getWeatherIcon(int code) {
+String weatherEmoji(int code) {
   if (code == 0) return '☀️';
-  if (code == 1 || code == 2 || code == 3) return '⛅';
-  if (code == 45 || code == 48) return '🌫️';
-  if (code == 51 || code == 53 || code == 55) return '🌦️';
-  if (code == 61 || code == 63 || code == 65) return '🌧️';
-  if (code == 71 || code == 73 || code == 75) return '❄️';
-  if (code == 80 || code == 81 || code == 82) return '🌧️';
-  if (code == 95 || code == 96 || code == 99) return '⛈️';
-  return '❔';
+  if ([1, 2, 3].contains(code)) return '⛅';
+  if ([45, 48].contains(code)) return '🌫️';
+  if ([51, 53, 55, 61, 63, 65, 80, 81, 82].contains(code)) return '🌧️';
+  if ([71, 73, 75].contains(code)) return '❄️';
+  if ([95, 96, 99].contains(code)) return '⛈️';
+  return '🌡️';
 }
